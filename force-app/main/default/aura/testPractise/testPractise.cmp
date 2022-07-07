@@ -1,0 +1,21 @@
+<aura:component access="global" implements="flexipage:availableForAllPageTypes">
+    <!---<lightning:button label="but" onclick="{!c.executePopUp}"/>
+    
+    <lightning:icon iconName="action:new_note"  alternativeText="New note"/>
+
+	<lightning:buttonIcon iconName="utility:success"  alternativeText="Connected"/>-->
+    
+    <aura:attribute name="input1" type="Integer"  required="true" default="" description="Enter the input 1"/>
+    <aura:attribute name="input2" type="Integer" required="true" default="" description="Enter the input 2"/>
+    
+    <div class="slds-align_absolute-center" style="height:5rem">
+        <lightning:layout>
+    		<lightning:input value="{!v.input1}" label="Please enter the input 1" required="true"/>
+    		<lightning:input value="{!v.input2}" label="Please enter the input 2" required="true"/>
+    		<lightning:button label="add" onclick="{!c.executeAdd}"/>
+    		<lightning:button label="sub"/>
+    		<lightning:button label="multiply"/>
+    		<lightning:button label="divide"/>
+        </lightning:layout>
+	</div>
+</aura:component>
