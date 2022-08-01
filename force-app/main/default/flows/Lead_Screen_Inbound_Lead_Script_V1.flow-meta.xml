@@ -47,6 +47,7 @@
             <label>Yes</label>
         </rules>
     </decisions>
+    <environments>Default</environments>
     <interviewLabel>Lead - Screen - {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Lead - Screen - Inbound Lead Script - V2</label>
     <processMetadataValues>

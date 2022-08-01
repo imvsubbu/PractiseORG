@@ -48,6 +48,7 @@
             <label>Yes</label>
         </rules>
     </decisions>
+    <environments>Default</environments>
     <formulas>
         <name>ContactIdFormula</name>
         <dataType>String</dataType>
