@@ -1,0 +1,75 @@
+<template>
+    <lightning-card title="quiz App">
+        <div>
+            <lightning-button variant="brand" label="Click check" onclick={openModal}>Click here to learn more
+            </lightning-button>
+            <div if:false={isLoaded}>
+                <lightning-spinner alternative-text="Loading" size="medium">
+                </lightning-spinner>
+            </div>
+        </div>
+
+
+        <template if:true={isModalOpen}>
+            <form>
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                    aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+
+                        <header class="slds-modal__header">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                                title="Close" onclick={closeModal}>
+                                <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                    size="small"></lightning-icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Modal/PopUp
+                                Box
+                                header
+                                LWC</h2>
+                        </header>
+
+                        <div class="slds-modal__content">
+
+                            <template for:each={quizQuestions} for:item="ques">
+                                <div key={ques.id} class="slds-p-around_medium">
+                                    <div><strong>{ques.id} - {ques.question}</strong></div>
+                                    <div class="slds-grid slds-gutters slds-p-top_medium">
+                                        <div class="slds-col">
+                                            <input type="radio" name={ques.id} value="a" onchange={saveValues}>
+                                            {ques.answers.a}
+                                        </div>
+                                        <div class="slds-col">
+                                            <input type="radio" name={ques.id} value="b" onchange={saveValues}>
+                                            {ques.answers.b}
+                                        </div>
+                                        <div class="slds-col">
+                                            <input type="radio" name={ques.id} value="c" onchange={saveValues}>
+                                            {ques.answers.c}
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+
+                        </div>
+
+                        <footer class="slds-modal__footer">
+                            <lightning-button variant="brand" type="submit" label="Submit" title="Submit Quiz"
+                                class="slds-m-around_small" disabled={disableSubmitAndReset} onclick={handleSubmit}>
+                            </lightning-button>
+                            <lightning-button variant="brand" type="reset" label="Reset" title="Reset Quiz"
+                                onclick={handleReset} class="slds-m-around_small"></lightning-button>
+                            <!-- <template if:true={isSubmitted}>
+                                <div class={isScoredFull}>You have got {correctAnswers} out of {quizQuestions.length}
+                                    correct</div>
+                            </template> -->
+                        </footer>
+
+                    </div>
+
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </form>
+        </template>
+    </lightning-card>
+</template>

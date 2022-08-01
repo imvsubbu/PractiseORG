@@ -1,0 +1,44 @@
+<template>
+    <!-- <div>Hello World..!</div>
+    <div>Hello {fullName}, Nice meeting you..!</div> -->
+
+    
+
+    <lightning-card  class="slds-m-around_medium" title="Two way data binding" >
+        <div class="slds-m-around_medium">
+            <lightning-input type="text" 
+                label="Enter course name" 
+                    onchange={changeHandler}></lightning-input>
+            <div>{fullName} is my name and i'll learn {title}</div>
+        </div>
+    </lightning-card>
+
+    <lightning-card  class="slds-m-around_medium" title="@track property" >
+        <div class="slds-m-around_medium">
+            <lightning-input type="text" 
+                label="Enter your city Name" 
+                    onchange={trackHandler}></lightning-input>
+            <div>{address.city} is my City</div>
+        </div>
+    </lightning-card>
+
+    <lightning-card  class="slds-m-around_medium" title="Getter demo" >
+        <div class="slds-var-m-around_medium">
+            <div>First username is {firstUser}</div>
+            <div>Multiplication of {num1} and {num2} is {multiply}</div>
+        </div>
+    </lightning-card>
+
+    <div class="demo-only demo-only--sizing slds-grid slds-wrap" title="multiply">
+        <div class="slds-size_1-of-2">
+            <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                <lightning-input type="number" label="Enter the number 1"></lightning-input>
+            </div>
+        </div>        
+        <div class="slds-size_1-of-2">
+            <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                <lightning-input type="number" label="Enter the number 1"></lightning-input>
+            </div>
+        </div>        
+    </div>
+</template>

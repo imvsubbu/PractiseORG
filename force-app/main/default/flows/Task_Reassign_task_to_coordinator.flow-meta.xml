@@ -2,6 +2,7 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>55.0</apiVersion>
     <description>This flow will do the update operation in order to re-assign the coordinator on the task object.</description>
+    <environments>Default</environments>
     <interviewLabel>Task - Reassgin task to coordinator {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Task - Reassign task to coordinator</label>
     <processMetadataValues>

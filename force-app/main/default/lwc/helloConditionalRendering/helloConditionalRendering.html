@@ -1,0 +1,71 @@
+<template>
+
+    <lightning-card title="for:each loop">
+        <div class="slds-var-m-around_medium">
+            <template for:each={carList} for:item="car">
+                <ul key={car} class="slds-has-dividers_around-space">
+                    <li class="slds-item" >The car currently i use is - {car}</li>
+                </ul>
+            </template>
+        </div>
+    </lightning-card>
+
+    <lightning-card title="iterator loop">
+        <div class="slds-var-m-around_medium">
+            <template iterator:ceo={ceoList}>
+                <div key={ceo.value.id}>
+                    <ul class="slds-has-dividers_around-space">
+
+                        <template if:true={ceo.first}>
+                            <div class="slds-box slds-theme_shade">
+                                <strong>
+                                    List of top companies and there CEO's
+                                </strong>
+                            </div>
+                        </template>
+                        
+                        <li class="slds-item">
+                            <strong>{ceo.value.company} </strong>
+                                    {ceo.value.name}
+                        </li>
+
+                        <template if:true={ceo.last}>
+                            <div class="slds-box slds-theme_shade">
+                                <strong>
+                                    Thanks for reading the List
+                                </strong>
+                            </div>
+                        </template>
+
+                    </ul>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+
+
+
+    <!-- <lightning-card title="Conditional rendering">
+        <div class="slds-var-m-around_medium">
+            <lightning-button variant="brand-outline" 
+                                label="Show Data"
+                                 title="Primary action with lighter look" 
+                                 onclick={handleClick} 
+                                 class="slds-var-m-left_x-small"></lightning-button>
+
+            <template  if:true={isVisible}>
+                <div>Welcome to my Practise</div>
+            </template>
+
+            <template if:false={isVisible}>
+                <div>You can see without clicking..!</div>
+            </template>
+
+            <lightning-input type="text" onkeyup={changeHandler} label = "Type hello to see the data"></lightning-input>
+
+            <template if:true={helloMethod}>
+                <div>Hurray you guessed this correctly..!</div>
+            </template>
+        </div>
+    </lightning-card> -->
+</template>
