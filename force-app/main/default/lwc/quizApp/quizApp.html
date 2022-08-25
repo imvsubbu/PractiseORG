@@ -1,12 +1,13 @@
 <template>
     <lightning-card title="quiz App">
         <div>
-            <lightning-button variant="brand" label="Click check" onclick={openModal}>Click here to learn more
+            <lightning-button class={hideOrShow} variant="brand-outline" label="Click check" onclick={openModal}>Click
+                here to learn more
             </lightning-button>
-            <div if:false={isLoaded}>
+            <!-- <div if:false={isLoaded}>
                 <lightning-spinner alternative-text="Loading" size="medium">
                 </lightning-spinner>
-            </div>
+            </div> -->
         </div>
 
 
