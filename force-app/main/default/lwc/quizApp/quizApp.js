@@ -50,6 +50,10 @@ export default class QuizApp extends LightningElement {
             'slds-text-color_success':'slds-text-color_error'}`
     }
 
+    get hideOrShow(){
+        return `slds-p-left_medium ${this.isModalOpen === true ? 'slds-hide' : 'slds-show'}`;
+    }
+
     saveValues(event){
         const {name, value} = event.target;
         this.selectedAsnwers = {...this.selectedAsnwers, [name]:value};
@@ -78,6 +82,7 @@ export default class QuizApp extends LightningElement {
 
     closeModal(){
         this.isModalOpen = false;
+        this.isLoaded = true;
     }
 
     showToastNotification(){
