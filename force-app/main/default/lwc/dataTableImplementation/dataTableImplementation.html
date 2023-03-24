@@ -1,0 +1,22 @@
+<template>
+     <!-- <template if:true={accData.data}>
+          <template for:each={accData.data} for:item="acc">
+               <div key={acc.Id}>{acc.Name}</div>
+          </template>
+     </template> -->
+     <div>
+          <lightning-datatable key-field="Id" data={accData} columns={accColumns} hide-checkbox-column>
+          </lightning-datatable>
+     </div>
+
+     <lightning-textarea name="input1" label="Enter some text"></lightning-textarea>
+
+     <div>
+          <textarea label="something"></textarea>
+     </div>
+
+     <!-- <template if:true={accData.error}>
+          <! <c-error-panel errors={accData.error}></c-error-panel>
+     <div>{accData.error}</div>
+</template> -->
+</template>

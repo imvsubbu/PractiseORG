@@ -3,14 +3,16 @@
     extensions="selectedSizeWorkaround"
     showHeader="false"
     id="muopp" -->
-<apex:page>
-    <apex:slds/>
-    <apex:includeLightning/>
+<apex:page >
+    <apex:slds />
+    <apex:includeLightning />
     <apex:includeScript value="https://code.jquery.com/jquery-1.12.4.min.js" />
     <script>
+        let showButton = false;
+        let showLWC = true;
         function doSomething() {
             $Lightning.use("c:lightningOutApp", function () {
-                $Lightning.createComponent("c:practiseLWC",
+                $Lightning.createComponent("c:practiseLWC", {},
                     //{ title: 'Test', message: 'Test', variant: 'success' },
                     "test",
                     function (cmp) {
@@ -18,10 +20,29 @@
                     }
                 );
             });
-        } 
+        };
+
+        function doNothing() {
+            document.getElementById("testButton").removeAttribute("disabled");
+            var ele = $("#practiseLWCButton").find("*").length;
+            if (showLWC) {
+                $Lightning.use("c:lightningOutApp", function () {
+                    // this.showButton = true;
+                    $('#testButton').addClass('slds-show');
+                    $Lightning.createComponent("c:fileListViewComp", {},
+                        "practiseLWCButton",
+                    )
+                });
+            }
+            showLWC = false;
+        };
     </script>
     <apex:includeScript value="pagevf.component" />
-    <button id="test" class="slds-button slds-button_neutral" onclick="doSomething()">Hello</button>
+    <button id="testButton" class="slds-button slds-button_neutral" onclick="doSomething()" disabled="{showButton}">Hello</button>
+    <div id="test"></div>
+    <button id="test2" class="slds-button slds-button_neutral" onclick="doNothing()">Hello 2</button>
+    <div class="slds-p-around_medium" id="practiseLWCButton"></div>
+    <flow:interview name="Lead_Screen_Inbound_Lead_Script_V1" ></flow:interview>
 
 </apex:page>
 
